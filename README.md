@@ -1,3 +1,6 @@
+# Fork Notice
+This is a fork of [Sky-UK's Gradle-Maven-Plugin](https://github.com/sky-uk/gradle-maven-plugin). I forked this due to inactivity of the original repo. 
+
 # Gradle Maven Plugin
 This is a small "plugin" to simplify the use of *maven-publish* Gradle plugin. 
 You can use this plugin for Java Library and Android Library.
@@ -15,7 +18,7 @@ You can use this plugin for Java Library and Android Library.
 ## <a name="usage"/>Usage
 In order to use GradleMavenizer you have to add the line
 
-`apply from: 'https://raw.githubusercontent.com/sky-uk/gradle-maven-plugin/master/gradle-mavenizer.gradle'`
+`apply from: 'https://raw.githubusercontent.com/chillbrodev/gradle-maven-plugin/master/gradle-mavenizer.gradle'`
 
 at the <b>very bottom</b> of the *build.gradle* file. Alternatively, to use a specific release version, add this property to the project (see Releases at the top of the Github page for released versions):
 
@@ -23,7 +26,7 @@ at the <b>very bottom</b> of the *build.gradle* file. Alternatively, to use a sp
     
 and add this line to the very bottom of the *build.gradle* file:
 
-    apply from: "https://raw.githubusercontent.com/sky-uk/gradle-maven-plugin/${project.mavPluginVersion}/gradle-mavenizer.gradle"`
+    `apply from: "https://raw.githubusercontent.com/chillbrodev/gradle-maven-plugin/${project.mavPluginVersion}/gradle-mavenizer.gradle"`
 
 ## <a name="customization"/>Customization
 GradleMavenizer is highly customizable.
@@ -62,8 +65,8 @@ _<b>Attention:</b> If you won't set any repository automatically the script will
 
 ```
 project.ext {
-    mavDevelopers = ["Fe":"Federico"]
-    mavSiteUrl = "https://github.com/sky-uk/gradle-maven-plugin"
+    mavDevelopers = ["chill":"ChillBroDev"]
+    mavSiteUrl = "https://github.com/chillbrodev/gradle-maven-plugin"
     mavGitUrl = mavSiteUrl + '.git'
     mavProjectName = 'GradleMavenizer'
     mavPublishToInternalRepo = true
