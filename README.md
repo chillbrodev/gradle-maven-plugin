@@ -43,6 +43,11 @@ _<b>Attention:</b> If you add the same property to the root project file and to 
 * <b>mavLibraryLicenses</b> _-> Map property -> A map with the name and the urls of the library licenses_
 * <b>mavSiteUrl</b> _-> String property -> Identify the url of the project website_
 * <b>mavGitUrl</b> _-> String property ->Identify the url of the project github page_
+* <b>mavArtifactVersion</b> _-> String property -> Identify the version of the artifact_
+* <b>mavArtifactGroupId</b> _-> String property -> Identify the groupId of the artifact_
+* <b>mavArtifactArtifactId</b> _-> String property -> Identify the ID of the artifact_
+
+_<b>Attention:</b> You will want to set mavArtifactGroupId, mavArtifactId & mavArtifactVersion to correctly identitfy your artifact. Example: mavArtifactGroupId:mavArtifactId:mavArtifactVersion_
 
 ### <a name="repositories"/>2. Repositories
 
@@ -51,6 +56,7 @@ _<b>Attention:</b> If you add the same property to the root project file and to 
     * <b>mavRemoteRepoUser</b> _-> String property -> Username to grant access to the remote repo_
     * <b>mavRemoteRepoPassword</b> _-> String property -> Password to grant access to the remote repo_
     * <b>mavRepoRemoteUrl</b> _-> String property -> Identify the url of the remote repo_
+    * <b>mavRepoRemoteName</b> _-> String property -> *Required* Identify the name of the remote repo_
     
 * Internal repository:
     * <b>mavPublishToInternalRepo</b> _-> Boolean property -> Allow the script to load your library to an internal repo_
@@ -73,6 +79,33 @@ project.ext {
     mavRepoInternalUrl = "path/to/internal/repo"
     mavLibraryLicenses = ["Apache-2.0":'http://www.apache.org/licenses/LICENSE-2.0.txt']
     mavLibraryDescription = "A simple description of the project"
+    mavArtifactVersion = "0.0.1"
+    mavArtifactGroupId = "com.chillbrodev"
+    mavArtifactArtifactId = "Example"
+}
+```
+
+### Sample Configuration for Github Packages
+
+```
+def githubProperties = new Properties()
+githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
+
+project.ext {
+    mavDevelopers = ["chill":"ChillBroDev"]
+    mavSiteUrl = "https://github.com/chillbrodev/my-android-library"
+    mavGitUrl = mavSiteUrl + '.git'
+    mavProjectName = 'My Android LIbrary'
+    mavPublishToRemoteRepo = true
+    mavRepoRemoteName = "GitHubPackages"
+    mavRemoteRepoUser = githubProperties['gpr.usr'] ?: System.getenv("GPR_USER")
+    mavRemoteRepoPassword = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")
+    mavRepoRemoteUrl = "https://maven.pkg.github.com/uptech/my-android-library"
+    mavLibraryLicenses = ["Apache-2.0":'http://www.apache.org/licenses/LICENSE-2.0.txt']
+    mavLibraryDescription = "A simple description of the project"
+    mavArtifactVersion = "0.0.1"
+    mavArtifactGroupId = "com.chillbrodev"
+    mavArtifactArtifactId = "Example"
 }
 ```
 

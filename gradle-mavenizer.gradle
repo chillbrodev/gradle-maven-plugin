@@ -9,6 +9,9 @@ project.afterEvaluate {
     publishing {
         publications {
             mavenPublish(MavenPublication) {
+                groupId getStringProperty("mavArtifactGroupId")
+                artifactId getStringProperty("mavArtifactArtifactId")
+                version getStringProperty("mavArtifactVersion")
                 if (isAndroidProject()) {
                     artifact bundleReleaseAar
                     artifact androidJavadocsJar
@@ -27,9 +30,15 @@ project.afterEvaluate {
             def isToRemoteRepo = getBooleanProperty("mavPublishToRemoteRepo")
             def isToInternalRepo = getBooleanProperty("mavPublishToInternalRepo")
             def isToMavenLocal = getBooleanProperty("mavPublishToMavenLocal")
+            def remoteRepoName = getStringProperty("mavRepoRemoteName")
 
+        
             if (isToRemoteRepo) {
+                if(remoteRepoName.isEmpty()) {
+                    throw new GradleException('Unable to perform remote upload. Missing Remote Repo Name. Set with property: mavRepoRemoteName')
+                }
                 maven {
+                    name = remoteRepoName
                     credentials {
                         username getStringProperty("mavRemoteRepoUser")
                         password getStringProperty("mavRemoteRepoPassword")
@@ -40,6 +49,7 @@ project.afterEvaluate {
 
             if (isToInternalRepo) {
                 maven {
+                    name = remoteRepoName
                     url = getStringProperty("mavRepoInternalUrl")
                 }
             }
