@@ -112,6 +112,17 @@ project.ext {
 }
 ```
 
+If you receive the following error message when trying to publish to Github Packages:
+
+```
+* What went wrong:
+Execution failed for task ':maintenancekit:publishMavenPublishPublicationToGitHubPackagesRepository'.
+> Failed to publish publication 'mavenPublish' to repository 'GitHubPackages'
+   > Could not PUT 
+```
+
+This could mean that you are trying to publish a VERSION that already exists. You MUST change your version in order to publish.
+
 ## <a name="publishCommand"/>Library Publish
 To finally publish you library you can use the command `./gradlew publish` directly from your project root folder.
 
