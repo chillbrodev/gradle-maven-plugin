@@ -5,6 +5,9 @@ This is a fork of [Sky-UK's Gradle-Maven-Plugin](https://github.com/sky-uk/gradl
 This is a small "plugin" to simplify the use of *maven-publish* Gradle plugin. 
 You can use this plugin for Java Library and Android Library.
 
+# Latest Version
+The latest version can be found in the [releases section](https://github.com/chillbrodev/gradle-maven-plugin/releases)
+
 # Index
 
 * [Usage](#usage)
