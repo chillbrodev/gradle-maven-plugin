@@ -12,7 +12,7 @@ Please take the time to carefully read the following guide. These rules help mak
 
 All contributions are handled via Pull Requests (PRs). Your PR _must_ target the `develop` branch. This is the place where we aggregate all upcoming changes for the next release of Gradle Maven Plugin. Moreover, your PR _must_ provide a meaningful description of what it is about.
 
-We suggest using ([Gitflow](http://nvie.com/posts/a-successful-git-branching-model/) branching model).
+We suggest using ([Git Patch-Stack](https://github.com/uptech/git-ps) model).
 
 Don't forget to update `CHANGELOG.md` before pushing your PR. While text may be re-worded before release, but it'll help tracking the changes.
 
